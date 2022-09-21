@@ -37,6 +37,11 @@ bottom.innerHTML= objM[i].header2;
     }
 };
 
+function Magic() {
+    
+}
+
+
 
 
 button.addEventListener('click', () => {
