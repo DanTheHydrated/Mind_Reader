@@ -37,10 +37,40 @@ bottom.innerHTML= objM[i].header2;
     }
 };
 
-function Magic() {
-    
-}
 
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+};
+
+let smallArray = ["s","a","m","e","a","r","y","p","l","u","s"];
+
+
+//shuffleArray(smallArray);
+console.log(smallArray);
+
+
+
+function magic() {
+    shuffleArray(smallArray);
+    for(x=0; x<100; x++){
+        if (x % 9 === 0) {
+            return smallArray[1];
+        }else {
+            return x;
+        }
+//dnum.replace= smallArray[random];
+//console.log(dnum);
+        
+    }
+};
+
+console.log(magic());
 
 
 
