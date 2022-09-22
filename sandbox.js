@@ -3,26 +3,38 @@ const bottom= document.getElementById('bottom');
 const button= document.getElementById("btn");
 const buttonBack= document.getElementById("bbtn");
 const reset= document.getElementById("reset");
+//const magMath= document.getElementById("mag");
+
 let i=0;
 
 const objM= [{
-        header1:"I can read your mind", 
-        header2:"I know you dont believe me!"
+        header1:"I can read your mind.", 
+        header2:"I know you dont believe me!",
+       // magMath: " "
     },
     {
-        header1:"Pick a number between '01-99'", 
-        header2:"Or don't, I'm just text"
+        header1:"Pick a number between '01-99'.", 
+        header2:"Or don't, I'm just text",
+       // magMath:" "
     },
     {
-        header1:"Add both digits together to get a new number",
-        header2:"Ex. 14 is 1 + 4 = 5"
+        header1:"Add both digits together to get a new number.",
+        header2:"Ex. 14 is 1 + 4 = 5",
+       // magMath:" "
     },
     {
-        header1:"Subtract your new number from the original number",
-        header2:"Ex. 14 - 5 = 9"
+        header1:"Subtract your new number from the original number.",
+        header2:"Ex. 14 - 5 = 9",
+        //magMath:" "
     },
     {
-        SymbalsAll:"" ,
+        header1:"find your number vs. a symble!",
+        header2:" ",
+       // magMath:" "
+    },
+    {
+        header1:"your number was...",
+        headeer2:" "
     }];
 
 /*
@@ -31,11 +43,9 @@ document.getElementById("bottom").innerHTML = objM[0].header2;
 */
 
 function npg () {
-    if(i<4) {
+    if(i<6) {
 header.innerHTML= objM[i].header1;
 bottom.innerHTML= objM[i].header2;
-  //  } else if(i=4) {
-  //      header
     }
 };
 
@@ -53,8 +63,8 @@ function shuffleArray(array) {
     return array;
 };
 //arrays to shuffle
-let smallArray = ["s","a","m","e","a","r","y","p","l","u"];
-let largeArray = ["1","2","3","4","5","6","7","8","9","10"];
+let smallArray = ["W","I","N","E","R"];
+let largeArray = ["!","@","#","$","%","^","&","*","(",")","-","+","=","~","?",":",">","<"];
 
 console.log(smallArray);
 console.log(largeArray);
@@ -66,15 +76,20 @@ function magic() {
     console.log(shuffled);
     let alsoShuffled = shuffleArray(largeArray);
     console.log(alsoShuffled);
-    let empty = [];
+    let magicArray = [];
     for(let x=01; x<100; x++){
+        let s = Math.floor(Math.random()*largeArray.length);
+
         if (x % 9 === 0) {
-            empty.push(smallArray[1]);
+            magicArray.push(smallArray[1]+"&nbsp;&nbsp;&nbsp;="+x);
         }else if (x % 9 !== 0) {
-            empty.push(largeArray[1]);
+            magicArray.push(largeArray[s]+"&nbsp;&nbsp;&nbsp;="+x);
         } 
     }
-    return empty;
+    objM[4].header2= magicArray.join('\r\n');
+    objM[5].header2= smallArray[1];
+    return magicArray; 
+    
 };
 
 console.log(magic());
@@ -108,6 +123,8 @@ reset.addEventListener('click', () => { //put an easter egg here if you click re
         i=0;
         console.log(i);
     }
+    magic();
+    npg();
 });
 
 npg();
