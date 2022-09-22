@@ -104,6 +104,7 @@ button.addEventListener('click', () => {
     if(i>5){
         i=0;
         console.log(i);
+        magic();
     }
     npg();
 });
