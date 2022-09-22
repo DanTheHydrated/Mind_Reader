@@ -40,6 +40,9 @@ bottom.innerHTML= objM[i].header2;
 };
 
 
+
+//Magic and magic workings
+
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -50,7 +53,7 @@ function shuffleArray(array) {
     return array;
 };
 
-let smallArray = ["s","a","m","e","a","r","y","p","l","u","s"];
+let smallArray = ["s","a","m","e","a","r","y","p","l","u"];
 
 
 //shuffleArray(smallArray);
@@ -59,22 +62,24 @@ console.log(smallArray);
 
 
 function magic() {
-    shuffleArray(smallArray);
-    for(x=0; x<100; x++){
+    let shuffled = shuffleArray(smallArray);
+    console.log(shuffled);
+    let empty = [];
+    for(let x=01; x<100; x++){
         if (x % 9 === 0) {
-            return smallArray[1];
-        }else {
-            return x;
-        }
-//dnum.replace= smallArray[random];
-//console.log(dnum);
-        
+            empty.push(smallArray[1]);
+        }else if (x % 9 !== 0) {
+            empty.push(smallArray[3]);
+        } 
     }
+    return empty;
 };
 
 console.log(magic());
 
 
+
+//button functions 
 
 button.addEventListener('click', () => {
     i++;
@@ -95,6 +100,8 @@ buttonBack.addEventListener('click', () =>{   //this may not work
     }
     npg();
 });
+
+
 
 npg();
 
