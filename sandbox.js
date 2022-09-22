@@ -1,6 +1,8 @@
 const header= document.getElementById("header");
 const bottom= document.getElementById('bottom');
 const button= document.getElementById("btn");
+const buttonBack= document.getElementById("bbtn");
+const reset= document.getElementById("reset");
 let i=0;
 
 const objM= [{
@@ -39,6 +41,48 @@ bottom.innerHTML= objM[i].header2;
 
 
 
+//Magic and magic workings
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+};
+//arrays to shuffle
+let smallArray = ["s","a","m","e","a","r","y","p","l","u"];
+let largeArray = ["1","2","3","4","5","6","7","8","9","10"];
+
+console.log(smallArray);
+console.log(largeArray);
+
+
+
+function magic() {
+    let shuffled = shuffleArray(smallArray);
+    console.log(shuffled);
+    let alsoShuffled = shuffleArray(largeArray);
+    console.log(alsoShuffled);
+    let empty = [];
+    for(let x=01; x<100; x++){
+        if (x % 9 === 0) {
+            empty.push(smallArray[1]);
+        }else if (x % 9 !== 0) {
+            empty.push(largeArray[1]);
+        } 
+    }
+    return empty;
+};
+
+console.log(magic());
+
+
+
+//button functions 
+
 button.addEventListener('click', () => {
     i++;
     console.log(i);
@@ -47,6 +91,23 @@ button.addEventListener('click', () => {
         console.log(i);
     }
     npg();
+});
+
+buttonBack.addEventListener('click', () => {   //this may not work 
+    i--;
+    console.log(i);
+    if(i<0){
+        i=0;
+        console.log(i);
+    }
+    npg();
+});
+
+reset.addEventListener('click', () => { //put an easter egg here if you click reset too much
+    if(i!==0){
+        i=0;
+        console.log(i);
+    }
 });
 
 npg();
