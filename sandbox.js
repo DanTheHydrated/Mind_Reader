@@ -1,6 +1,8 @@
 const header= document.getElementById("header");
 const bottom= document.getElementById('bottom');
 const button= document.getElementById("btn");
+const buttonBack= document.getElementById("bbtn");
+const reset= document.getElementById("reset");
 let i=0;
 
 const objM= [{
@@ -78,6 +80,16 @@ button.addEventListener('click', () => {
     i++;
     console.log(i);
     if(i>5){
+        i=0;
+        console.log(i);
+    }
+    npg();
+});
+
+buttonBack.addEventListener('click', () =>{   //this may not work 
+    i--;
+    console.log(i);
+    if(i<0){
         i=0;
         console.log(i);
     }
