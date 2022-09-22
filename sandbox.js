@@ -8,22 +8,22 @@ const reset= document.getElementById("reset");
 let i=0;
 
 const objM= [{
-        header1:"I can read your mind", 
+        header1:"I can read your mind.", 
         header2:"I know you dont believe me!",
        // magMath: " "
     },
     {
-        header1:"Pick a number between '01-99'", 
+        header1:"Pick a number between '01-99'.", 
         header2:"Or don't, I'm just text",
        // magMath:" "
     },
     {
-        header1:"Add both digits together to get a new number",
+        header1:"Add both digits together to get a new number.",
         header2:"Ex. 14 is 1 + 4 = 5",
        // magMath:" "
     },
     {
-        header1:"Subtract your new number from the original number",
+        header1:"Subtract your new number from the original number.",
         header2:"Ex. 14 - 5 = 9",
         //magMath:" "
     },
@@ -31,6 +31,10 @@ const objM= [{
         header1:"find your number vs. a symble!",
         header2:" ",
        // magMath:" "
+    },
+    {
+        header1:"your number was...",
+        headeer2:" "
     }];
 
 /*
@@ -42,7 +46,6 @@ function npg () {
     if(i<6) {
 header.innerHTML= objM[i].header1;
 bottom.innerHTML= objM[i].header2;
-//mag.innerHTML= objM[i].magMath;
     }
 };
 
@@ -60,7 +63,7 @@ function shuffleArray(array) {
     return array;
 };
 //arrays to shuffle
-let smallArray = ["1","2","3","4","5"];
+let smallArray = ["W","I","N","E","R"];
 let largeArray = ["!","@","#","$","%","^","&","*","(",")","-","+","=","~","?",":",">","<"];
 
 console.log(smallArray);
@@ -78,13 +81,14 @@ function magic() {
         let s = Math.floor(Math.random()*largeArray.length);
 
         if (x % 9 === 0) {
-            magicArray.push(smallArray[1]);
+            magicArray.push(smallArray[1]+"&nbsp;&nbsp;&nbsp;="+x);
         }else if (x % 9 !== 0) {
-            magicArray.push(largeArray[s]);
+            magicArray.push(largeArray[s]+"&nbsp;&nbsp;&nbsp;="+x);
         } 
     }
     objM[4].header2= magicArray.join('\r\n');
-    return magicArray;
+    objM[5].header2= smallArray[1];
+    return magicArray; 
     
 };
 
@@ -119,6 +123,7 @@ reset.addEventListener('click', () => { //put an easter egg here if you click re
         i=0;
         console.log(i);
     }
+    magic();
     npg();
 });
 
