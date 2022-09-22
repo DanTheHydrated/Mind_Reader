@@ -3,26 +3,34 @@ const bottom= document.getElementById('bottom');
 const button= document.getElementById("btn");
 const buttonBack= document.getElementById("bbtn");
 const reset= document.getElementById("reset");
+//const magMath= document.getElementById("mag");
+
 let i=0;
 
 const objM= [{
         header1:"I can read your mind", 
-        header2:"I know you dont believe me!"
+        header2:"I know you dont believe me!",
+       // magMath: " "
     },
     {
         header1:"Pick a number between '01-99'", 
-        header2:"Or don't, I'm just text"
+        header2:"Or don't, I'm just text",
+       // magMath:" "
     },
     {
         header1:"Add both digits together to get a new number",
-        header2:"Ex. 14 is 1 + 4 = 5"
+        header2:"Ex. 14 is 1 + 4 = 5",
+       // magMath:" "
     },
     {
         header1:"Subtract your new number from the original number",
-        header2:"Ex. 14 - 5 = 9"
+        header2:"Ex. 14 - 5 = 9",
+        //magMath:" "
     },
     {
-        SymbalsAll:"" ,
+        header1:"find your number vs. a symble!",
+        header2:" ",
+       // magMath:" "
     }];
 
 /*
@@ -31,11 +39,10 @@ document.getElementById("bottom").innerHTML = objM[0].header2;
 */
 
 function npg () {
-    if(i<4) {
+    if(i<6) {
 header.innerHTML= objM[i].header1;
 bottom.innerHTML= objM[i].header2;
-  //  } else if(i=4) {
-  //      header
+//mag.innerHTML= objM[i].magMath;
     }
 };
 
@@ -66,15 +73,17 @@ function magic() {
     console.log(shuffled);
     let alsoShuffled = shuffleArray(largeArray);
     console.log(alsoShuffled);
-    let empty = [];
+    let magicArray = [];
     for(let x=01; x<100; x++){
         if (x % 9 === 0) {
-            empty.push(smallArray[1]);
+            magicArray.push(smallArray[1]);
         }else if (x % 9 !== 0) {
-            empty.push(largeArray[1]);
+            magicArray.push(largeArray[1]);
         } 
     }
-    return empty;
+    objM[4].header1= magicArray.join('\r\n')
+    return magicArray;
+    
 };
 
 console.log(magic());
@@ -108,6 +117,7 @@ reset.addEventListener('click', () => { //put an easter egg here if you click re
         i=0;
         console.log(i);
     }
+    npg();
 });
 
 npg();
