@@ -60,8 +60,8 @@ function shuffleArray(array) {
     return array;
 };
 //arrays to shuffle
-let smallArray = ["s","a","m","e","a","r","y","p","l","u"];
-let largeArray = ["1","2","3","4","5","6","7","8","9","10"];
+let smallArray = ["1","2","3","4","5"];
+let largeArray = ["!","@","#","$","%","^","&","*","(",")","-","+","=","~","?",":",">","<"];
 
 console.log(smallArray);
 console.log(largeArray);
@@ -75,13 +75,15 @@ function magic() {
     console.log(alsoShuffled);
     let magicArray = [];
     for(let x=01; x<100; x++){
+        let s = Math.floor(Math.random()*largeArray.length);
+
         if (x % 9 === 0) {
             magicArray.push(smallArray[1]);
         }else if (x % 9 !== 0) {
-            magicArray.push(largeArray[1]);
+            magicArray.push(largeArray[s]);
         } 
     }
-    objM[4].header1= magicArray.join('\r\n')
+    objM[4].header2= magicArray.join('\r\n');
     return magicArray;
     
 };
