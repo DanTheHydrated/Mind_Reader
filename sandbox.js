@@ -52,24 +52,26 @@ function shuffleArray(array) {
     }
     return array;
 };
-
+//arrays to shuffle
 let smallArray = ["s","a","m","e","a","r","y","p","l","u"];
+let largeArray = ["1","2","3","4","5","6","7","8","9","10"];
 
-
-//shuffleArray(smallArray);
 console.log(smallArray);
+console.log(largeArray);
 
 
 
 function magic() {
     let shuffled = shuffleArray(smallArray);
     console.log(shuffled);
+    let alsoShuffled = shuffleArray(largeArray);
+    console.log(alsoShuffled);
     let empty = [];
     for(let x=01; x<100; x++){
         if (x % 9 === 0) {
             empty.push(smallArray[1]);
         }else if (x % 9 !== 0) {
-            empty.push(smallArray[3]);
+            empty.push(largeArray[1]);
         } 
     }
     return empty;
@@ -91,7 +93,7 @@ button.addEventListener('click', () => {
     npg();
 });
 
-buttonBack.addEventListener('click', () =>{   //this may not work 
+buttonBack.addEventListener('click', () => {   //this may not work 
     i--;
     console.log(i);
     if(i<0){
@@ -101,7 +103,12 @@ buttonBack.addEventListener('click', () =>{   //this may not work
     npg();
 });
 
-
+reset.addEventListener('click', () => { //put an easter egg here if you click reset too much
+    if(i!==0){
+        i=0;
+        console.log(i);
+    }
+});
 
 npg();
 
