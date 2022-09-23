@@ -3,3 +3,28 @@
     max-height: 400px;
     overflow: scroll;
 }
+
+.card {
+    height: 500px;
+    width: 350px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: lightcyan;
+}
+
+.headContainer {
+    height: 700px;
+    margin: 30px;
+    background-color: lightcyan;
+    width: 350px;
+}
+
+.row {
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.col {
+    border-radius: 5px;
+}
