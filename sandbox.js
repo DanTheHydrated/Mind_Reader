@@ -3,6 +3,8 @@ const bottom= document.getElementById('bottom');
 const button= document.getElementById("btn");
 const buttonBack= document.getElementById("bbtn");
 const reset= document.getElementById("reset");
+//const josh= document.getElementById("josh");
+
 //const magMath= document.getElementById("mag");
 
 let i=0;
@@ -129,6 +131,15 @@ reset.addEventListener('click', () => { //put an easter egg here if you click re
 });
 
 npg();
+/*
+josh.addEventListener('clicked', () => {
+    if (i<1){
+        josh.style.display = 'none';
+    } else {
+        josh.style.display = 'blobk';
+    }
+});
+*/
 
 
 
